@@ -34,9 +34,11 @@ let Player2Cards = []
     let shuffled1 = generateShuffled();
     console.log(shuffled1)
     let turns = 0
+    let end = false
 
-
+    
         document.addEventListener("click", () => {
+            if(!end){
             document.getElementById("card1").innerText = "Card 1:" + shuffled1[turns]
 
             document.getElementById("card2").innerText = "Card 2:" + shuffled1[turns + 1]
@@ -73,12 +75,16 @@ let Player2Cards = []
                 Player2Cards.push(shuffled1[turns + 1])
             }
             turns += 2
+            console.log(turns)
+            if(turns >= 30) end = true;
+            
             document.getElementById("p1Cards").innerText = "Total: " + Player1Cards.length
 
             document.getElementById("p2Cards").innerText = "Total: " + Player2Cards.length
-
+        }
         })
-
+       
+    
 
 
 
